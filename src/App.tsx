@@ -1,9 +1,13 @@
 import React from "react";
 import FlowersService from "./API/FlowersService";
+import Header from "./components/Header/Header";
 
 function App() {
-  console.log(FlowersService.getFlowers());
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Header count={0} />
+    </div>
+  );
 }
 
 export default App;
