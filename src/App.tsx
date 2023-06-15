@@ -1,12 +1,9 @@
 import React from "react";
-import Loader from "./components/UI/Loader/Loader";
+import FlowersService from "./API/FlowersService";
 
 function App() {
-  return (
-    <div className="App">
-      <Loader />
-    </div>
-  );
+  console.log(FlowersService.getFlowers());
+  return <div className="App"></div>;
 }
 
 export default App;

@@ -3,9 +3,9 @@
   min-height: 70px;
   max-width: 70px;
   max-height: 70px;
-  border-top: 5px solid pink;
-  border-right: 5px solid pink;
   border-radius: 80%;
+  border-top: 5px solid #c73153;
+  border-right: 5px solid #c73153;
   margin: auto;
   animation: rotate 1.5s infinite linear;
 }
