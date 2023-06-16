@@ -1,6 +1,6 @@
 import React from "react";
-import FlowersService from "./API/FlowersService";
 import Header from "./components/Header/Header";
+import "./styles/style.css";
 
 function App() {
   return (

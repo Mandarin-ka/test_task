@@ -1,8 +1,9 @@
 import React from "react";
 import cl from "./Loader.module.css";
+import loader from "./../../../assets/img/loader.png";
 
 function Loader() {
-  return <div className={cl.loader}></div>;
+  return <img src={loader} alt="" className={cl.loader} />;
 }
 
 export default Loader;

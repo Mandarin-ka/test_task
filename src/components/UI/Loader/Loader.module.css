@@ -4,10 +4,9 @@
   max-width: 70px;
   max-height: 70px;
   border-radius: 80%;
-  border-top: 5px solid #c73153;
-  border-right: 5px solid #c73153;
   margin: auto;
-  animation: rotate 1.5s infinite linear;
+  display: block;
+  animation: rotate 3s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 @keyframes rotate {
