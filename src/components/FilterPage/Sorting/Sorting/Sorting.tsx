@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import cl from "./Sorting.module.css";
 import Dropdown from "../../../UI/DropDown/DropDown";
 
