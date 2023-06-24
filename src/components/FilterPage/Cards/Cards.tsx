@@ -1,12 +1,18 @@
 import React from "react";
-import arr from "./../../../API/flowers.json";
 import Card from "./Card/Card";
 import cl from "./Cards.module.css";
+import { IFlower } from "../../../API/IFlowers";
 
-function Cards({ setCount }: { setCount: () => void }) {
+function Cards({
+  cards,
+  setCount,
+}: {
+  cards: IFlower[];
+  setCount: () => void;
+}) {
   return (
     <div className={cl.cards}>
-      {arr.map(e => (
+      {cards.map(e => (
         <Card key={e.id} card={e} setCount={setCount} />
       ))}
     </div>
