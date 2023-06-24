@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import "./styles/style.css";
 import Cards from "./components/FilterPage/Cards/Cards";
+import { getStoragedFlowers } from "./utils/localStorage";
 
 function App() {
+  const [favoritesLength, setFavoriteLength] = useState<number>(
+    getStoragedFlowers().length
+  );
   return (
     <div className="App">
-      <Header count={0} />
+      <Header count={favoritesLength} />
       <div className="container">
-        <Cards />
+        <Cards
+          setCount={() => setFavoriteLength(getStoragedFlowers().length)}
+        />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-export interface IFlower {
+export type IFlower = {
   id: number;
   title: string;
   description: string;

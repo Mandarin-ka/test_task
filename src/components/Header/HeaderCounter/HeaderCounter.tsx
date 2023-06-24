@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import basket from "./../../../assets/icons/basket.svg";
 import cl from "./HeaderCounter.module.css";
+import { getStoragedFlowers } from "../../../utils/localStorage";
 
 function HeaderCounter({ count }: { count: number }) {
   return (
