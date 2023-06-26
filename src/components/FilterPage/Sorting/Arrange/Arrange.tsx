@@ -23,12 +23,12 @@ function Arrange({
         }></div>
       <div className={cl.arrange__block}>
         <ImgExport
-          mode="block"
+          type="block"
           fill={mode === "block" ? "#C73153" : "#828282"}
         />
       </div>
       <div className={cl.arrange__block}>
-        <ImgExport mode="ul" fill={mode === "block" ? "#828282" : "#C73153"} />
+        <ImgExport type="ul" fill={mode === "block" ? "#828282" : "#C73153"} />
       </div>
     </div>
   );

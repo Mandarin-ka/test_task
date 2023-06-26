@@ -1,7 +1,7 @@
 import React from "react";
 
-function ImgExport({ mode, fill }: { mode: string; fill: string }) {
-  if (mode === "block") {
+function ImgExport({ type, fill }: { type: string; fill: string }) {
+  if (type === "block") {
     return (
       <svg
         width="24"
