@@ -4,16 +4,18 @@ import cl from "./Cards.module.css";
 import { IFlower } from "../../../API/IFlowers";
 
 function Cards({
+  mode,
   cards,
   setCount,
 }: {
+  mode: string;
   cards: IFlower[];
   setCount: () => void;
 }) {
   return (
-    <div className={cl.cards}>
+    <div className={mode === "block" ? cl.cards__block : cl.cards__ul}>
       {cards.map(e => (
-        <Card key={e.id} card={e} setCount={setCount} />
+        <Card mode={mode} key={e.id} card={e} setCount={setCount} />
       ))}
     </div>
   );

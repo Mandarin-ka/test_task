@@ -1,15 +1,18 @@
 import React from "react";
 import cl from "./TextInput.module.css";
 import img from "./../../../assets/icons/Search.svg";
+import { Filter } from "../../FilterPage/Filtration/FilterInterface";
 
 function TextInput({
   type,
   placeholder,
+  value,
   setValue,
 }: {
   type: string;
   placeholder: string;
-  setValue: (elem: string) => void;
+  value: Filter;
+  setValue: (value: Filter) => void;
 }) {
   return (
     <div className={cl.text__block}>
@@ -23,7 +26,7 @@ function TextInput({
         maxLength={60}
         onChange={e => {
           e.preventDefault();
-          setValue(e.target.value);
+          setValue({ ...value, query: e.target.value });
         }}
       />
     </div>
