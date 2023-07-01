@@ -32,15 +32,15 @@ export function getFlowers() {
   const flowerNumber: number[] = [];
   const flowerName: string[] = [];
   for (let i = 0; i < flowers.length; i++) {
-    flowers[i].flower.forEach((e) => {
-      if (flowerName.indexOf(e) === -1) {
-        flowerName.push(e);
+    flowers[i].flower.forEach((flower) => {
+      if (flowerName.indexOf(flower) === -1) {
+        flowerName.push(flower);
         flowerNumber.push(1);
-        tempFlowers.push({ flower: e, number: 1 });
+        tempFlowers.push({ flower: flower, number: 1 });
       } else {
-        flowerNumber.push(flowerName.indexOf(e));
+        flowerNumber.push(flowerName.indexOf(flower));
         tempFlowers.forEach((el) => {
-          if (Object.values(el).indexOf(e) !== -1) {
+          if (Object.values(el).indexOf(flower) !== -1) {
             el = { ...el, number: (el.number += 1) };
           }
         });
@@ -57,6 +57,19 @@ export function getFlowers() {
   for (let i = 0; i < 10; i++) {
     result.push(resFlowers[i].flower);
   }
+
+  return result;
+}
+
+export function getColors() {
+  const result: string[] = [];
+  for (let i = 0; i < flowers.length; i++) {
+    flowers[i].color.forEach((color) => {
+      if (result.indexOf(color) === -1) result.push(color); 
+    });
+  }
+
+  console.log(result);
 
   return result;
 }

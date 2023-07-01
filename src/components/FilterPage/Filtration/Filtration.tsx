@@ -3,6 +3,7 @@ import TypeFilter from "./TypeFilter/TypeFilter";
 import { Filter } from "./FilterInterface";
 import OccasionFilter from "./OccasionFilter/OccasionFilter";
 import FlowerFilter from "./FlowerFilter/FlowersFilter";
+import ColorFilter from "./ColorFilter/ColorFilter";
 
 function Filtration({
   filter,
@@ -15,6 +16,7 @@ function Filtration({
     <div className="filtration">
       <TypeFilter name="тип" filter={filter} setFilter={setFilter} />
       <OccasionFilter name="повод" filter={filter} setFilter={setFilter} />
+      <ColorFilter name="тип" filter={filter} setFilter={setFilter} />
       <FlowerFilter
         name="основной цветок"
         filter={filter}
