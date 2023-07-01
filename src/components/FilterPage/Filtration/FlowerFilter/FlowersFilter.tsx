@@ -1,12 +1,12 @@
 import React from "react";
-import Checkbox from "../../../UI/Checkbox/Checkbox";
-import { getTypes } from "../../../../utils/FlowersUtils";
 import { Filter } from "../FilterInterface";
+import Checkbox from "../../../UI/Checkbox/Checkbox";
+import { getFlowers } from "../../../../utils/FlowersUtils";
 
-function TypeFilter({
+function FlowerFilter({
   name,
-  setFilter,
   filter,
+  setFilter,
 }: {
   name: string;
   filter: Filter;
@@ -16,7 +16,7 @@ function TypeFilter({
     <div id="type__filter">
       <Checkbox
         name={name}
-        options={getTypes()}
+        options={getFlowers()}
         setFilter={setFilter}
         filter={filter}
       />
@@ -24,4 +24,4 @@ function TypeFilter({
   );
 }
 
-export default TypeFilter;
+export default FlowerFilter;

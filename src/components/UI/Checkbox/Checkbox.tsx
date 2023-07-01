@@ -4,12 +4,12 @@ import { Filter } from "../../FilterPage/Filtration/FilterInterface";
 
 function Checkbox({
   name,
-  types,
+  options,
   filter,
   setFilter,
 }: {
   name: string;
-  types: string[];
+  options: string[];
   filter: Filter;
   setFilter: (elem: Filter) => void;
 }) {
@@ -35,31 +35,22 @@ function Checkbox({
           <input
             type="checkbox"
             name=""
-            id={"t"}
+            id={"t" + name}
             className={cl.checkbox__input}
           />
-          <label htmlFor={"t"} className={cl.checkbox__label}>
+          <label htmlFor={"t" + name} className={cl.checkbox__label}>
             Все
           </label>
         </div>
-        {types.map((e, i) => (
+        {options.map((e, i) => (
           <div className={cl.block} key={i}>
             <input
               type="checkbox"
               name=""
-              id={"t" + i}
+              id={"t" + name + i}
               className={cl.checkbox__input}
-              onChange={(e) =>
-                setFilter({
-                  ...filter,
-                  type: [
-                    ...filter.type,
-                    (e.target.labels || [])[0].textContent || "",
-                  ],
-                })
-              }
             />
-            <label htmlFor={"t" + i} className={cl.checkbox__label}>
+            <label htmlFor={"t" + name + i} className={cl.checkbox__label}>
               {e}
             </label>
           </div>

@@ -16,7 +16,7 @@ function OccasionFilter({
     <div id="type__filter">
       <Checkbox
         name={name}
-        types={getOccasions()}
+        options={getOccasions()}
         setFilter={setFilter}
         filter={filter}
       />
