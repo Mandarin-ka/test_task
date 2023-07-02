@@ -1,0 +1,41 @@
+.text__input {
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  padding: 10px 52px;
+  top: 0;
+  height: 44px;
+  font-size: 16px;
+}
+
+.text__input:active {
+  border: 1px solid #c73153;
+  outline: 0;
+}
+
+.text__icon {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 16px;
+}
+
+.text__input:focus {
+  border: 1px solid #c73153;
+  outline: 0;
+}
+
+.text__input::placeholder {
+  color: #bdbdbd;
+}
+
+.text__block {
+  width: 100%;
+  max-width: 570px;
+  position: relative;
+  height: 44px;
+  margin: auto;
+}

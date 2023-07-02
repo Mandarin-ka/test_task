@@ -1,0 +1,100 @@
+.card {
+  display: flex;
+  width: 420px;
+  position: relative;
+  padding: 17px 10px;
+  box-sizing: border-box;
+  margin: auto;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  transition: 0;
+}
+
+.card__img {
+  width: 170px;
+  align-self: center;
+}
+
+.inf {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.card__name {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4f4f4f;
+  margin-top: 5px;
+}
+
+.card__price {
+  color: #333333;
+  font-size: 34px;
+  margin-top: 15px;
+}
+
+.card__play {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #c73153;
+  display: flex;
+  min-width: 40px;
+  max-height: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  background-color: white;
+  right: 20px;
+  cursor: pointer;
+  bottom: 18px;
+}
+
+.card:hover .card__play {
+  border: 2px solid white;
+  background-color: #c73153;
+}
+
+.card__play::before {
+  content: "";
+  position: absolute;
+  top: 5.5px;
+  left: 13px;
+  margin: auto;
+  border: 13px solid transparent;
+  border-left: 13px solid #c73153;
+}
+
+.card:hover .card__play::before {
+  border-left: 13px solid white;
+}
+
+.card__add {
+  position: absolute;
+  bottom: 18px;
+  width: 134px;
+  margin: 20px auto 0;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #c73153;
+  color: white;
+  border: 0;
+  text-transform: uppercase;
+  text-align: right;
+  padding: 3px 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.card__added {
+  background-color: gray;
+  width: 146px;
+}
+
+.add__text {
+  text-transform: uppercase;
+  font-size: 17px;
+}
