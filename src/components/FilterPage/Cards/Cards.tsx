@@ -1,13 +1,21 @@
 import React from "react";
-import arr from "./../../../API/flowers.json";
-import Card from "../Card/Card";
+import Card from "./Card/Card";
 import cl from "./Cards.module.css";
+import { IFlower } from "../../../API/IFlowers";
 
-function Cards() {
+function Cards({
+  mode,
+  cards,
+  setCount,
+}: {
+  mode: string;
+  cards: IFlower[];
+  setCount: () => void;
+}) {
   return (
-    <div className={cl.cards}>
-      {arr.map(e => (
-        <Card key={e.id} card={e} />
+    <div className={mode === "block" ? cl.cards__block : cl.cards__ul}>
+      {cards.map(e => (
+        <Card mode={mode} key={e.id} card={e} setCount={setCount} />
       ))}
     </div>
   );
