@@ -16,7 +16,7 @@ function Filtration({
     <div className="filtration">
       <TypeFilter name="тип" filter={filter} setFilter={setFilter} />
       <OccasionFilter name="повод" filter={filter} setFilter={setFilter} />
-      <ColorFilter name="тип" filter={filter} setFilter={setFilter} />
+      <ColorFilter name="цвет" filter={filter} setFilter={setFilter} />
       <FlowerFilter
         name="основной цветок"
         filter={filter}
