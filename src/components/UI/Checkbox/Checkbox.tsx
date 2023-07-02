@@ -1,8 +1,8 @@
-import React from "react";
-import cl from "./Checkbox.module.css";
-import { Filter } from "../../FilterPage/Filtration/FilterInterface";
-import Accordeon from "../Accordeon/Accordeon";
-import InputCheck from "../InputCheck/InputCheck";
+import React from 'react';
+import cl from './Checkbox.module.css';
+import { Filter } from '../../FilterPage/Filtration/FilterInterface';
+import Accordeon from '../Accordeon/Accordeon';
+import InputCheck from '../CheckboxInput/InputCheck';
 
 function Checkbox({
   name,
@@ -18,7 +18,7 @@ function Checkbox({
   return (
     <div className={cl.checkbox}>
       <Accordeon name={name}>
-        <InputCheck blockName={name} name="все" point={-1} />
+        <InputCheck blockName={name} name='все' point={-1} />
         {options.map((e, i) => (
           <InputCheck key={i} blockName={name} name={e} point={i} />
         ))}

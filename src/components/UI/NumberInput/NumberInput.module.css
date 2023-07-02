@@ -1,0 +1,40 @@
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90px;
+  position: relative;
+}
+
+.block label {
+  font-size: 14px;
+  color: #4f4f4f;
+}
+
+.block input[type='number'] {
+  width: 65px;
+  height: 28px;
+  padding: 0 6px 0 12px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  outline: 0;
+  font-size: 14px;
+  color: #4f4f4f;
+}
+
+.block label::after {
+  content: '$';
+  left: 30px;
+  position: absolute;
+}
+
+.block input[type='number']::-webkit-inner-spin-button,
+.block input[type='number']::-webkit-outter-spin-button {
+  appearance: none;
+}
+
+.block input[type='number']::-moz-inner-spin-button,
+.block input[type='number']::-moz-outter-spin-button {
+  appearance: textfield;
+}

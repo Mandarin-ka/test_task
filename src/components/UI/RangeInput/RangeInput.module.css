@@ -1,0 +1,44 @@
+.block {
+  display: flex;
+  position: relative;
+  background-color: #d9d9d9;
+  height: 4px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.progress {
+  background-color: #c73153;
+  position: absolute;
+  height: 4px;
+  border-radius: 4px;
+}
+
+.block input[type='range'] {
+  appearance: none;
+  position: absolute;
+  background: none;
+  top: -6px;
+  width: 100%;
+  background-color: none;
+  pointer-events: none;
+}
+
+.block input[type='range']::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  pointer-events: auto;
+  appearance: none;
+  background-color: #c73153;
+}
+
+.block input[type='range']::-moz-range-thumb {
+  height: 15px;
+  border: none;
+  width: 15px;
+  border-radius: 50%;
+  pointer-events: auto;
+  appearance: none;
+  background-color: #c73153;
+}
