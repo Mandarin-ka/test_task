@@ -20,7 +20,7 @@ function NumberInput({ label }: { label: string }) {
 
   return (
     <div className={cl.block}>
-      <label htmlFor={label}>{label}</label>
+      <label htmlFor={label}>{label.toLowerCase()}</label>
       <input
         type='number'
         name=''

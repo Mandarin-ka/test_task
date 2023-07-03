@@ -1,7 +1,8 @@
-import React from "react";
-import Checkbox from "../../../UI/Checkbox/Checkbox";
-import { getOccasions } from "../../../../utils/FlowersUtils";
-import { Filter } from "../FilterInterface";
+import React from 'react';
+import Checkbox from '../../../UI/Checkbox/Checkbox';
+import { getOccasions } from '../../../../utils/FlowersUtils';
+import { Filter } from '../FilterInterface';
+import Accordeon from '../../../UI/Accordeon/Accordeon';
 
 function OccasionFilter({
   name,
@@ -13,14 +14,14 @@ function OccasionFilter({
   setFilter: (elem: Filter) => void;
 }) {
   return (
-    <div id="type__filter">
+    <Accordeon name={name}>
       <Checkbox
         name={name}
         options={getOccasions()}
         setFilter={setFilter}
         filter={filter}
       />
-    </div>
+    </Accordeon>
   );
 }
 

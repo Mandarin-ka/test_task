@@ -23,7 +23,6 @@ function Filtration({
         filter={filter}
         setFilter={setFilter}
       />
-      <RangeInput />
     </div>
   );
 }

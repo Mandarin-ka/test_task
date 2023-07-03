@@ -17,12 +17,10 @@ function Checkbox({
 }) {
   return (
     <div className={cl.checkbox}>
-      <Accordeon name={name}>
-        <InputCheck blockName={name} name='все' point={-1} />
-        {options.map((e, i) => (
-          <InputCheck key={i} blockName={name} name={e} point={i} />
-        ))}
-      </Accordeon>
+      <InputCheck blockName={name} name='все' point={-1} />
+      {options.map((e, i) => (
+        <InputCheck key={i} blockName={name} name={e} point={i} />
+      ))}
     </div>
   );
 }
