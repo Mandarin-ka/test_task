@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 90px;
+  width: 90px;
   position: relative;
 }
 
@@ -14,7 +14,7 @@
 .block input[type='number'] {
   width: 65px;
   height: 28px;
-  padding: 0 6px 0 12px;
+  padding: 0 6px 0 14px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -23,9 +23,10 @@
   color: #4f4f4f;
 }
 
-.block label::after {
-  content: '$';
-  left: 30px;
+.dollar {
+  display: block;
+  left: 32px;
+  font-size: 14px;
   position: absolute;
 }
 

@@ -79,3 +79,11 @@ export function getMinPrice() {
 export function getMaxPrice() {
   return flowers.reduce((a, b) => (a.price > b.price ? a : b)).price;
 }
+
+export function getMaxSize() {
+  return flowers.reduce((a, b) => (a.size > b.size ? a : b)).size;
+}
+
+export function getMinSize() {
+  return flowers.reduce((a, b) => (a.size < b.size ? a : b)).size;
+}

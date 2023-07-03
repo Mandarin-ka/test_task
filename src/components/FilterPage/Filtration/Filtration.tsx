@@ -4,7 +4,15 @@ import { Filter } from './FilterInterface';
 import OccasionFilter from './OccasionFilter/OccasionFilter';
 import FlowerFilter from './FlowerFilter/FlowersFilter';
 import ColorFilter from './ColorFilter/ColorFilter';
-import RangeInput from '../../UI/RangeInput/RangeInput';
+import cl from './Filtration.module.css';
+import PriceFilter from './PriceFilter/PriceFilter';
+import SizeFilter from './SizeFilter/SizeFilter';
+import Button from '../../UI/Button/Button';
+import {
+  getMaxPrice,
+  getMinPrice,
+  getMinSize,
+} from '../../../utils/FlowersUtils';
 
 function Filtration({
   filter,
@@ -14,7 +22,7 @@ function Filtration({
   setFilter: (elem: Filter) => void;
 }) {
   return (
-    <div className='filtration'>
+    <div className={cl.filtration}>
       <TypeFilter name='тип' filter={filter} setFilter={setFilter} />
       <OccasionFilter name='повод' filter={filter} setFilter={setFilter} />
       <ColorFilter name='цвет' filter={filter} setFilter={setFilter} />
@@ -23,6 +31,26 @@ function Filtration({
         filter={filter}
         setFilter={setFilter}
       />
+      <PriceFilter name='цена' filter={filter} setFilter={setFilter} />
+      <SizeFilter name='Высота' filter={filter} setFilter={setFilter} />
+      <Button
+        className='remove'
+        onClick={() =>
+          setFilter({
+            query: '',
+            type: [],
+            reason: [],
+            color: [],
+            flower: [],
+            priceMin: getMinPrice(),
+            priceMax: getMaxPrice(),
+            sizeMin: getMinSize(),
+            sizeMax: getMaxPrice(),
+          })
+        }
+      >
+        сбросить фильтры
+      </Button>
     </div>
   );
 }

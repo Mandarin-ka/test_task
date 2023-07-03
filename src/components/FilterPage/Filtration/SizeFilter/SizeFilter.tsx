@@ -3,10 +3,10 @@ import NumberInput from '../../../UI/NumberInput/NumberInput';
 import { Filter } from '../FilterInterface';
 import RangeInput from '../../../UI/RangeInput/RangeInput';
 import Accordeon from '../../../UI/Accordeon/Accordeon';
-import cl from './PriceFilter.module.css';
-import { getMaxPrice, getMinPrice } from '../../../../utils/FlowersUtils';
+import cl from './SizeFilter.module.css';
+import { getMaxSize, getMinSize } from '../../../../utils/FlowersUtils';
 
-function PriceFilter({
+function SizeFilter({
   name,
   filter,
   setFilter,
@@ -15,28 +15,28 @@ function PriceFilter({
   filter: Filter;
   setFilter: (filter: Filter) => void;
 }) {
-  const [leftPoint, setLeftPoint] = useState(getMinPrice());
-  const [rightPoint, setRightPoint] = useState(getMaxPrice());
+  const [leftPoint, setLeftPoint] = useState(getMinSize());
+  const [rightPoint, setRightPoint] = useState(getMaxSize());
 
   return (
     <Accordeon name={name}>
-      <div className={cl.size__number}>
+      <div className={cl.price__number}>
         <NumberInput
-          name='цена'
+          name='высота'
           label='от'
           point={leftPoint < rightPoint ? leftPoint : rightPoint}
           setPoint={leftPoint < rightPoint ? setLeftPoint : setRightPoint}
         />
         <NumberInput
-          name='цена'
+          name='высота'
           label='до'
           point={leftPoint < rightPoint ? rightPoint : leftPoint}
           setPoint={leftPoint < rightPoint ? setRightPoint : setLeftPoint}
         />
       </div>
       <RangeInput
-        min={getMinPrice()}
-        max={getMaxPrice()}
+        min={getMinSize()}
+        max={getMaxSize()}
         leftPoint={leftPoint}
         rightPoint={rightPoint}
         setLeftPoint={setLeftPoint}
@@ -46,4 +46,4 @@ function PriceFilter({
   );
 }
 
-export default PriceFilter;
+export default SizeFilter;

@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import cl from './RangeInput.module.css';
-import { getMaxPrice, getMinPrice } from '../../../utils/FlowersUtils';
 
-function RangeInput() {
-  const [leftPoint, setLeftPoint] = useState(getMinPrice());
-  const [rightPoint, setRightPoint] = useState(getMaxPrice());
-
+function RangeInput({
+  min,
+  max,
+  leftPoint,
+  rightPoint,
+  setLeftPoint,
+  setRightPoint,
+}: {
+  min: number;
+  max: number;
+  leftPoint: number;
+  rightPoint: number;
+  setLeftPoint: (elem: number) => void;
+  setRightPoint: (elem: number) => void;
+}) {
   const inputL = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLeftPoint(+e.target.value);
   };
 
   const inputR = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRightPoint(+e.target.value);
-    console.log(leftPoint, rightPoint);
-    console.log(100 - (rightPoint / getMaxPrice()) * 100);
   };
 
   return (
@@ -23,12 +31,12 @@ function RangeInput() {
         style={
           leftPoint < rightPoint
             ? {
-                left: `${(leftPoint / getMaxPrice()) * 100}% `,
-                right: `${100 - (rightPoint / getMaxPrice()) * 100}%`,
+                left: `${((leftPoint - min) / (max - min)) * 100}% `,
+                right: `${100 - ((rightPoint - min) / (max - min)) * 100}%`,
               }
             : {
-                left: `${(rightPoint / getMaxPrice()) * 100}% `,
-                right: `${100 - (leftPoint / getMaxPrice()) * 100}%`,
+                left: `${((rightPoint - min) / (max - min)) * 100}% `,
+                right: `${100 - ((leftPoint - min) / (max - min)) * 100}%`,
               }
         }
       ></div>
@@ -36,8 +44,8 @@ function RangeInput() {
         type='range'
         name=''
         id=''
-        min={getMinPrice()}
-        max={getMaxPrice()}
+        min={min}
+        max={max}
         value={leftPoint}
         onChange={inputL}
       />
@@ -45,8 +53,8 @@ function RangeInput() {
         type='range'
         name=''
         id=''
-        min={getMinPrice()}
-        max={getMaxPrice()}
+        min={min}
+        max={max}
         value={rightPoint}
         onChange={inputR}
       />
