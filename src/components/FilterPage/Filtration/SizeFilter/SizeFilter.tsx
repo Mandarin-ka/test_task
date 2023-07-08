@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NumberInput from '../../../UI/NumberInput/NumberInput';
 import { Filter } from '../FilterInterface';
-import RangeInput from '../../../UI/RangeInput/RangeInput';
 import Accordeon from '../../../UI/Accordeon/Accordeon';
 import cl from './SizeFilter.module.css';
+import RangeInput from '../../../UI/RangeInput/RangeInput';
 import { getMaxSize, getMinSize } from '../../../../utils/FlowersUtils';
 
 function SizeFilter({
@@ -15,32 +15,30 @@ function SizeFilter({
   filter: Filter;
   setFilter: (filter: Filter) => void;
 }) {
-  const [leftPoint, setLeftPoint] = useState(getMinSize());
-  const [rightPoint, setRightPoint] = useState(getMaxSize());
-
   return (
     <Accordeon name={name}>
       <div className={cl.price__number}>
         <NumberInput
-          name='высота'
           label='от'
-          point={leftPoint < rightPoint ? leftPoint : rightPoint}
-          setPoint={leftPoint < rightPoint ? setLeftPoint : setRightPoint}
+          value={filter.sizeMin}
+          name='высота'
         />
         <NumberInput
-          name='высота'
           label='до'
-          point={leftPoint < rightPoint ? rightPoint : leftPoint}
-          setPoint={leftPoint < rightPoint ? setRightPoint : setLeftPoint}
+          value={filter.sizeMax}
+          name='высота'
         />
       </div>
       <RangeInput
+        range
         min={getMinSize()}
         max={getMaxSize()}
-        leftPoint={leftPoint}
-        rightPoint={rightPoint}
-        setLeftPoint={setLeftPoint}
-        setRightPoint={setRightPoint}
+        value={[filter.sizeMin, filter.sizeMax]}
+        onChange={(e) =>
+          typeof e !== 'number'
+            ? setFilter({ ...filter, sizeMin: e[0], sizeMax: e[1] })
+            : new Error('Values is not incremental')
+        }
       />
     </Accordeon>
   );

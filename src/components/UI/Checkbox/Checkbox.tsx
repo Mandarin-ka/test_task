@@ -1,7 +1,6 @@
 import React from 'react';
 import cl from './Checkbox.module.css';
 import { Filter } from '../../FilterPage/Filtration/FilterInterface';
-import Accordeon from '../Accordeon/Accordeon';
 import InputCheck from '../CheckboxInput/InputCheck';
 
 function Checkbox({
@@ -17,9 +16,15 @@ function Checkbox({
 }) {
   return (
     <div className={cl.checkbox}>
-      <InputCheck blockName={name} name='все' point={-1} />
       {options.map((e, i) => (
-        <InputCheck key={i} blockName={name} name={e} point={i} />
+        <InputCheck
+          key={i}
+          blockName={name}
+          name={e}
+          point={i}
+          filter={filter}
+          setFilter={setFilter}
+        />
       ))}
     </div>
   );

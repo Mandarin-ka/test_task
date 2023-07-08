@@ -1,5 +1,5 @@
-import { IFlower } from "../API/IFlowers";
-import { useMemo } from "react";
+import { IFlower } from '../API/IFlowers';
+import { useMemo } from 'react';
 
 export const useMaxPrice = (flowers: IFlower[]) => {
   const maxPriceFlower = useMemo(() => {

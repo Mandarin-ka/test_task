@@ -24,6 +24,7 @@ function TextInput({
         placeholder={placeholder}
         className={cl.text__input}
         maxLength={60}
+        value={value.query}
         onChange={(e) => {
           e.preventDefault();
           setValue({ ...value, query: e.target.value });

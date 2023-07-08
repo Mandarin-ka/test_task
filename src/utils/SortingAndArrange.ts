@@ -11,20 +11,79 @@ export const flowersSort = (flowers: IFlower[], sort: string): IFlower[] => {
   }
 };
 
-export const flowersFilter = (flowers: IFlower[], filter: Filter, sort: string): IFlower[] => {
-  const queryFilter = (flowers: IFlower[]) => {
-    return flowers.filter(
-      (e) =>
-        e.title.includes(filter.query) ||
-        e.description.includes(filter.query) ||
-        e.flower.join(' ').includes(filter.query)
-    );
-  };
+const queryFilter = (flowers: IFlower[], filter: Filter) =>
+  flowers.filter(
+    (e) =>
+      e.category.includes(filter.query) ||
+      e.country.includes(filter.query) ||
+      e.description.includes(filter.query) ||
+      e.occasions.includes(filter.query) ||
+      e.title.includes(filter.query) ||
+      e.category.includes(filter.query)
+  );
 
-  const typeFilter = (flowers: IFlower[]) => {
-    if (filter.type.length > 0) return flowers.filter((e) => filter.type.indexOf(e.category));
-    return flowers;
-  };
+const typeFilter = (flowers: IFlower[], filter: Filter) => {
+  return filter.type.length === 0
+    ? flowers
+    : flowers.filter((e) => filter.type.indexOf(e.category) > -1);
+};
 
-  return flowersSort(queryFilter(typeFilter(flowers)), sort);
+const priceFilter = (flowers: IFlower[], filter: Filter) => {
+  return flowers.filter(
+    (e) => filter.priceMin <= e.price && filter.priceMax >= e.price
+  );
+};
+
+const sizeFilter = (flowers: IFlower[], filter: Filter) => {
+  return flowers.filter(
+    (e) => filter.sizeMin <= e.size && filter.sizeMax >= e.size
+  );
+};
+
+const colorFilter = (flowers: IFlower[], filter: Filter) => {
+  return filter.color.length === 0
+    ? flowers
+    : flowers.filter((e) => e.color.indexOf(filter.color) > -1);
+};
+
+const flowerFilter = (flowers: IFlower[], filter: Filter) => {
+  return filter.flower.length === 0
+    ? flowers
+    : flowers.filter((e) =>
+        e.flower.some((e) => filter.flower.indexOf(e) > -1)
+      );
+};
+
+const reasonFilter = (flowers: IFlower[], filter: Filter) => {
+  return filter.reason.length === 0
+    ? flowers
+    : flowers.filter((e) =>
+        e.occasions.some((e) => filter.reason.indexOf(e) > -1)
+      );
+};
+
+export const flowersFilter = (
+  flowers: IFlower[],
+  filter: Filter,
+  sort: string
+) => {
+  return flowersSort(
+    queryFilter(
+      typeFilter(
+        reasonFilter(
+          priceFilter(
+            sizeFilter(
+              flowerFilter(colorFilter(flowers, filter), filter),
+              filter
+            ),
+            filter
+          ),
+          filter
+        ),
+        filter
+      ),
+      filter
+    ),
+    sort
+  );
 };

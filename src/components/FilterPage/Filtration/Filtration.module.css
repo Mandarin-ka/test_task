@@ -3,4 +3,28 @@
   padding: 11px 30px 44px;
   box-sizing: border-box;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.filtration > * {
+  margin: 10px 0;
+}
+
+.remove__button {
+  padding: 5px 20px;
+  margin: 25px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 0;
+  background-color: #c73153;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  font-family: Roboto;
+  text-transform: uppercase;
+  cursor: pointer;
 }

@@ -34,14 +34,14 @@ function Filtration({
       <PriceFilter name='цена' filter={filter} setFilter={setFilter} />
       <SizeFilter name='Высота' filter={filter} setFilter={setFilter} />
       <Button
-        className='remove'
+        className={cl.remove__button}
         onClick={() =>
           setFilter({
             query: '',
-            type: [],
-            reason: [],
-            color: [],
-            flower: [],
+            type: [''],
+            reason: [''],
+            color: '',
+            flower: [''],
             priceMin: getMinPrice(),
             priceMax: getMaxPrice(),
             sizeMin: getMinSize(),

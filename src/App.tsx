@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import './styles/style.css';
 import Cards from './components/FilterPage/Cards/Cards';
@@ -8,15 +8,13 @@ import Sorting from './components/FilterPage/Sorting/Sorting/Sorting';
 import Arrange from './components/FilterPage/Sorting/Arrange/Arrange';
 import TextInput from './components/UI/TextInput/TextInput';
 import { useCards } from './hooks/useCards';
+import { Filter } from './components/FilterPage/Filtration/FilterInterface';
 import {
   useMaxPrice,
   useMaxSize,
   useMinPrice,
   useMinSize,
 } from './hooks/usePriceSize';
-import Checkbox from './components/UI/Checkbox/Checkbox';
-import { getTypes } from './utils/FlowersUtils';
-import TypeFilter from './components/FilterPage/Filtration/TypeFilter/TypeFilter';
 import Filtration from './components/FilterPage/Filtration/Filtration';
 
 function App() {
@@ -25,12 +23,13 @@ function App() {
   const [favoritesLength, setFavoriteLength] = useState(
     getStoragedFlowers().length
   );
-  const [filter, setFilter] = useState({
+
+  const [filter, setFilter] = useState<Filter>({
     query: '',
-    type: [''],
-    reason: [''],
-    color: [''],
-    flower: [''],
+    type: [],
+    reason: [],
+    color: '',
+    flower: [],
     priceMin: useMinPrice(flowers),
     priceMax: useMaxPrice(flowers),
     sizeMin: useMinSize(flowers),

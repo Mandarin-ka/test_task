@@ -1,0 +1,34 @@
+.rc-slider-horizontal {
+  position: relative;
+  width: calc(100% - 16px);
+  margin: auto;
+  background-color: #d9d9d9;
+}
+
+.rc-slider-rail {
+  width: 100%;
+  position: absolute;
+  background-color: #d9d9d9;
+  height: 4px;
+  border-radius: 4px;
+  position: absolute;
+}
+
+.rc-slider-track {
+  height: 4px;
+  background-color: #c73153;
+  position: absolute;
+}
+
+.rc-slider-handle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  margin-top: -5px;
+  background-color: #c73153;
+  border-radius: 50%;
+  cursor: -webkit-grab;
+  cursor: grab;
+  outline: 0;
+  border: 0;
+}
