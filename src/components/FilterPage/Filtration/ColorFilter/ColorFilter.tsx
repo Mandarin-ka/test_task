@@ -14,7 +14,6 @@ function ColorFilter({
   setFilter: (elem: Filter) => void;
 }) {
   const colors = getColors();
-  const [isActiveColor, setIsActiveColor] = useState('');
   return (
     <Accordeon name={name}>
       <div className={cl.block}>
@@ -22,7 +21,7 @@ function ColorFilter({
           <div
             key={i}
             className={
-              e !== isActiveColor ? cl.color : cl.color + ' ' + cl.active
+              !filter.color.includes(e) ? cl.color : cl.color + ' ' + cl.active
             }
             style={
               e !== 'white'
@@ -34,7 +33,6 @@ function ColorFilter({
             }
             onClick={() => {
               setFilter({ ...filter, color: e });
-              setIsActiveColor(e);
             }}
           ></div>
         ))}

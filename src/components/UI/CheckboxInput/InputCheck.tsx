@@ -8,12 +8,14 @@ function InputCheck({
   point,
   filter,
   setFilter,
+  check,
 }: {
   blockName: string;
   name: string;
   point: number;
   filter: Filter;
   setFilter: (filter: Filter) => void;
+  check?: boolean;
 }) {
   function change(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.checked) {
@@ -42,23 +44,6 @@ function InputCheck({
     }
   }
 
-  function optionHandler(filter: Filter, blockName: string) {
-    if (blockName.toLowerCase() === 'тип') {
-      return filter.type.length > 1 && filter.type.indexOf('') > -1
-        ? filter.type.filter((e) => e !== '')
-        : filter.type;
-    }
-    if (blockName.toLowerCase() === 'повод') {
-      return filter.reason.length > 1 && filter.reason.indexOf('') > -1
-        ? filter.reason.filter((e) => e !== '')
-        : filter.reason;
-    }
-    if (blockName.toLowerCase() === 'основной цветок')
-      return filter.flower.length > 1 && filter.flower.indexOf('') > -1
-        ? filter.flower.filter((e) => e !== '')
-        : filter.flower;
-  }
-
   return (
     <div className={cl.block}>
       <input
@@ -68,6 +53,7 @@ function InputCheck({
         className={cl.checkbox__input}
         onChange={change}
         value={name}
+        checked={check}
       />
       <label htmlFor={'t' + blockName + point} className={cl.checkbox__label}>
         {name}

@@ -25,7 +25,7 @@ function PriceFilter({
         range
         min={getMinPrice()}
         max={getMaxPrice()}
-        defaultValue={[filter.priceMin, filter.priceMax]}
+        value={[filter.priceMin, filter.priceMax]}
         onChange={(e) =>
           typeof e !== 'number'
             ? setFilter({ ...filter, priceMin: e[0], priceMax: e[1] })

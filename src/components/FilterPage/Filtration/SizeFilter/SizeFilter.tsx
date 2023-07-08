@@ -18,16 +18,8 @@ function SizeFilter({
   return (
     <Accordeon name={name}>
       <div className={cl.price__number}>
-        <NumberInput
-          label='от'
-          value={filter.sizeMin}
-          name='высота'
-        />
-        <NumberInput
-          label='до'
-          value={filter.sizeMax}
-          name='высота'
-        />
+        <NumberInput label='от' value={filter.sizeMin} name='высота' />
+        <NumberInput label='до' value={filter.sizeMax} name='высота' />
       </div>
       <RangeInput
         range

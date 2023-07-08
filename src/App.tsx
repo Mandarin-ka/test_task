@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import './styles/style.css';
 import Cards from './components/FilterPage/Cards/Cards';

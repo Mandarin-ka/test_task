@@ -14,6 +14,12 @@ function Checkbox({
   filter: Filter;
   setFilter: (elem: Filter) => void;
 }) {
+  function check(e: string) {
+    if (name === 'основной цветок') return filter.flower.indexOf(e) > -1;
+    if (name === 'повод') return filter.reason.indexOf(e) > -1;
+    if (name === 'тип') return filter.type.indexOf(e) > -1;
+  }
+
   return (
     <div className={cl.checkbox}>
       {options.map((e, i) => (
@@ -24,6 +30,7 @@ function Checkbox({
           point={i}
           filter={filter}
           setFilter={setFilter}
+          check={check(e)}
         />
       ))}
     </div>

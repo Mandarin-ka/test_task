@@ -10,6 +10,7 @@ import SizeFilter from './SizeFilter/SizeFilter';
 import Button from '../../UI/Button/Button';
 import {
   getMaxPrice,
+  getMaxSize,
   getMinPrice,
   getMinSize,
 } from '../../../utils/FlowersUtils';
@@ -38,14 +39,14 @@ function Filtration({
         onClick={() =>
           setFilter({
             query: '',
-            type: [''],
-            reason: [''],
+            type: [],
+            reason: [],
             color: '',
-            flower: [''],
+            flower: [],
             priceMin: getMinPrice(),
             priceMax: getMaxPrice(),
             sizeMin: getMinSize(),
-            sizeMax: getMaxPrice(),
+            sizeMax: getMaxSize(),
           })
         }
       >
