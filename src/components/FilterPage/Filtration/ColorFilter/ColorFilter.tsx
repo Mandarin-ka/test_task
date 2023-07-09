@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { getColors } from "../../../../utils/FlowersUtils";
-import { Filter } from "../FilterInterface";
-import Accordeon from "../../../UI/Accordeon/Accordeon";
-import cl from "./ColorFilter.module.css";
+import React, { useState } from 'react';
+import { getColors } from '../../../../utils/FlowersUtils';
+import { Filter } from '../FilterInterface';
+import Accordeon from '../../../UI/Accordeon/Accordeon';
+import cl from './ColorFilter.module.css';
 
 function ColorFilter({
   name,
@@ -14,7 +14,6 @@ function ColorFilter({
   setFilter: (elem: Filter) => void;
 }) {
   const colors = getColors();
-  const [isActiveColor, setIsActiveColor] = useState("");
   return (
     <Accordeon name={name}>
       <div className={cl.block}>
@@ -22,17 +21,19 @@ function ColorFilter({
           <div
             key={i}
             className={
-              e !== isActiveColor ? cl.color : cl.color + " " + cl.active
+              !filter.color.includes(e) ? cl.color : cl.color + ' ' + cl.active
             }
             style={
-              e !== "white"
+              e !== 'white'
                 ? { backgroundColor: e }
                 : {
                     backgroundColor: e,
-                    border: "1px solid #D9D9D9",
+                    border: '1px solid #D9D9D9',
                   }
             }
-            onClick={() => setIsActiveColor(e)}
+            onClick={() => {
+              setFilter({ ...filter, color: e });
+            }}
           ></div>
         ))}
       </div>

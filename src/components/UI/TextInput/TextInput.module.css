@@ -33,9 +33,9 @@
 }
 
 .text__block {
-  width: 100%;
-  max-width: 570px;
+  width: 570px;
   position: relative;
+  display: flex;
+  align-items: center;
   height: 44px;
-  margin: auto;
 }

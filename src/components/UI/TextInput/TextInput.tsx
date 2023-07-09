@@ -1,7 +1,7 @@
-import React from "react";
-import cl from "./TextInput.module.css";
-import img from "./../../../assets/icons/Search.svg";
-import { Filter } from "../../FilterPage/Filtration/FilterInterface";
+import React from 'react';
+import cl from './TextInput.module.css';
+import img from './../../../assets/icons/Search.svg';
+import { Filter } from '../../FilterPage/Filtration/FilterInterface';
 
 function TextInput({
   type,
@@ -16,15 +16,16 @@ function TextInput({
 }) {
   return (
     <div className={cl.text__block}>
-      {type === "search" && (
-        <img src={img} alt="search" className={cl.text__icon} />
+      {type === 'search' && (
+        <img src={img} alt='search' className={cl.text__icon} />
       )}
       <input
-        type="text"
+        type='text'
         placeholder={placeholder}
         className={cl.text__input}
         maxLength={60}
-        onChange={e => {
+        value={value.query}
+        onChange={(e) => {
           e.preventDefault();
           setValue({ ...value, query: e.target.value });
         }}

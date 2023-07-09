@@ -1,7 +1,8 @@
-import React from "react";
-import { Filter } from "../FilterInterface";
-import Checkbox from "../../../UI/Checkbox/Checkbox";
-import { getFlowers } from "../../../../utils/FlowersUtils";
+import React from 'react';
+import { Filter } from '../FilterInterface';
+import Checkbox from '../../../UI/Checkbox/Checkbox';
+import { getFlowers } from '../../../../utils/FlowersUtils';
+import Accordeon from '../../../UI/Accordeon/Accordeon';
 
 function FlowerFilter({
   name,
@@ -13,14 +14,14 @@ function FlowerFilter({
   setFilter: (elem: Filter) => void;
 }) {
   return (
-    <div id="type__filter">
+    <Accordeon name={name}>
       <Checkbox
         name={name}
         options={getFlowers()}
         setFilter={setFilter}
         filter={filter}
       />
-    </div>
+    </Accordeon>
   );
 }
 

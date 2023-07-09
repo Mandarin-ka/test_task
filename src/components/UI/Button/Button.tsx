@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function Button({
   className,
@@ -6,11 +6,20 @@ function Button({
   children,
 }: {
   className: string;
-  onClick: () => void;
-  children: React.ReactNode;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }) {
   return (
-    <button className={className} onClick={() => onClick()}>
+    <button
+      className={className}
+      onClick={
+        onClick
+          ? () => onClick()
+          : () => {
+              return;
+            }
+      }
+    >
       {children}
     </button>
   );

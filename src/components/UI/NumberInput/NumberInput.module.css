@@ -1,0 +1,51 @@
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90px;
+  position: relative;
+}
+
+.block label {
+  font-size: 14px;
+  color: #4f4f4f;
+}
+
+.block input[type='number']:disabled {
+  width: 65px;
+  height: 28px;
+  padding: 0 6px 0 14px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  outline: 0;
+  font-size: 14px;
+  color: #4f4f4f;
+  background-color: white;
+  border: 1px solid #828282;
+  border-radius: 4px;
+}
+
+.dollar {
+  display: block;
+  left: 32px;
+  font-size: 14px;
+  position: absolute;
+}
+
+.block input[type='number']::-webkit-inner-spin-button,
+.block input[type='number']::-webkit-outter-spin-button {
+  appearance: none;
+}
+
+.block input[type='number']::-moz-inner-spin-button,
+.block input[type='number']::-moz-outter-spin-button {
+  appearance: textfield;
+}
