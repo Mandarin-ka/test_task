@@ -7,11 +7,12 @@
 .checkbox__input + label {
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
   user-select: none;
 }
 
 .checkbox__input + label::before {
-  content: "";
+  content: '';
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -29,7 +30,7 @@
 .checkbox__input:checked + label::before {
   border-color: #c73153;
   background-color: #c73153;
-  background-image: url("./../../../assets/icons/iconTrue.svg");
+  background-image: url('./../../../assets/icons/iconTrue.svg');
   background-size: 90%;
 }
 
@@ -40,4 +41,8 @@
 .checkbox__label {
   text-transform: capitalize;
   font-size: 14px;
+}
+
+.block {
+  height: 40px;
 }

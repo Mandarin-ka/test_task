@@ -1,4 +1,4 @@
-import flowers from "../API/flowers.json";
+import flowers from '../API/flowers.json';
 
 export function getTypes() {
   const result: string[] = [];
@@ -65,11 +65,25 @@ export function getColors() {
   const result: string[] = [];
   for (let i = 0; i < flowers.length; i++) {
     flowers[i].color.forEach((color) => {
-      if (result.indexOf(color) === -1) result.push(color); 
+      if (result.indexOf(color) === -1) result.push(color);
     });
   }
 
-  console.log(result);
-
   return result;
+}
+
+export function getMinPrice() {
+  return flowers.reduce((a, b) => (a.price < b.price ? a : b)).price;
+}
+
+export function getMaxPrice() {
+  return flowers.reduce((a, b) => (a.price > b.price ? a : b)).price;
+}
+
+export function getMaxSize() {
+  return flowers.reduce((a, b) => (a.size > b.size ? a : b)).size;
+}
+
+export function getMinSize() {
+  return flowers.reduce((a, b) => (a.size < b.size ? a : b)).size;
 }

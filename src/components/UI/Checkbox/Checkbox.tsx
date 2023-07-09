@@ -1,8 +1,7 @@
-import React from "react";
-import cl from "./Checkbox.module.css";
-import { Filter } from "../../FilterPage/Filtration/FilterInterface";
-import Accordeon from "../Accordeon/Accordeon";
-import InputCheck from "../InputCheck/InputCheck";
+import React from 'react';
+import cl from './Checkbox.module.css';
+import { Filter } from '../../FilterPage/Filtration/FilterInterface';
+import InputCheck from '../CheckboxInput/InputCheck';
 
 function Checkbox({
   name,
@@ -15,14 +14,25 @@ function Checkbox({
   filter: Filter;
   setFilter: (elem: Filter) => void;
 }) {
+  function check(e: string) {
+    if (name === 'основной цветок') return filter.flower.indexOf(e) > -1;
+    if (name === 'повод') return filter.reason.indexOf(e) > -1;
+    if (name === 'тип') return filter.type.indexOf(e) > -1;
+  }
+
   return (
     <div className={cl.checkbox}>
-      <Accordeon name={name}>
-        <InputCheck blockName={name} name="все" point={-1} />
-        {options.map((e, i) => (
-          <InputCheck key={i} blockName={name} name={e} point={i} />
-        ))}
-      </Accordeon>
+      {options.map((e, i) => (
+        <InputCheck
+          key={i}
+          blockName={name}
+          name={e}
+          point={i}
+          filter={filter}
+          setFilter={setFilter}
+          check={check(e)}
+        />
+      ))}
     </div>
   );
 }
