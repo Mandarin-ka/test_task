@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 870px;
-  margin: auto;
-  gap: 50px;
+  margin: 50px auto 0;
+  gap: 15px;
 }
 
 .cards__ul {
@@ -11,5 +11,5 @@
   max-width: 900px;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
-  margin: auto;
+  margin: 50px auto 0;
 }
